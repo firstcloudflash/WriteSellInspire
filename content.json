@@ -1,0 +1,33 @@
+{
+  "resources":[
+    {
+      "title":"Clinical Survival Guide",
+      "category":"Ward Guide",
+      "short":"Real ward confidence for healthcare students.",
+      "description":"Built to prepare healthcare students emotionally and practically before clinical postings.",
+      "image":"assets/book1.jpg",
+      "link":"https://gumroad.com/",
+      "benefits":[
+        "Ward communication tips",
+        "Patient interaction confidence",
+        "Clinical professionalism",
+        "Mental preparation"
+      ]
+    },
+
+    {
+      "title":"First Posting Experience",
+      "category":"Experience Archive",
+      "short":"The emotions nobody talks about.",
+      "description":"An emotional and educational breakdown of first clinical posting experiences.",
+      "image":"assets/book2.jpg",
+      "link":"https://gumroad.com/",
+      "benefits":[
+        "Psychological preparation",
+        "Ward etiquette",
+        "Healthcare mindset",
+        "Professional confidence"
+      ]
+    }
+  ]
+}
