@@ -1,52 +1,13 @@
-<!-- ============================= -->
-<!-- UPDATED HERO + NAVBAR VERSION -->
-<!-- CHANGES MADE FROM PREVIOUS UI -->
-<!-- ============================= -->
-
-<!--
-1. NEW MINIMAL NAVBAR
-   - Left button = Resources
-   - Center = CHEW In Training
-   - Right button = Gallery
-
-2. NEW HERO LAYOUT
-   - Split layout
-   - Left side text
-   - Right side portrait card
-
-3. NEW FLOATING PORTRAIT CARD
-   - Rounded image card
-   - Glow light behind image
-   - Glassmorphism styling
-   - Floating atmosphere
-
-4. NEW ATMOSPHERIC BACKGROUND
-   - Soft radial gradients
-   - Floating blur circles
-   - Healthcare calm aesthetic
-
-5. NEW CREATOR/MENTOR FEEL
-   - Human-centered layout
-   - Emotional trust direction
-   - Less “ebook store”
-   - More “healthcare mentorship ecosystem”
-
-6. NEW VISUAL HIERARCHY
-   - Face becomes emotional anchor
-   - CTA area cleaner
-   - Better breathing space
-
-7. NEW MICRO DETAILS
-   - Floating particles
-   - Soft hover interactions
-   - Glass depth layering
--->
+<!-- ========================================= -->
+<!-- CHEW IN TRAINING — CINEMATIC HERO VERSION -->
+<!-- UPDATED WITH REAL IMAGE PLACEMENTS -->
+<!-- ========================================= -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>CHEW In Training</title>
 
@@ -65,58 +26,105 @@
 
 body{
   font-family:'Inter',sans-serif;
-  background:#eef7ff;
+  background:#edf7ff;
   overflow-x:hidden;
-  color:#183b4e;
+  color:#16384d;
 }
 
-/* ========================= */
+/* ================================= */
 /* BACKGROUND ATMOSPHERE */
-/* ========================= */
+/* ================================= */
 
 .background{
   position:fixed;
   inset:0;
   overflow:hidden;
-  z-index:-5;
+  z-index:-10;
 }
 
-.gradient-1,
-.gradient-2,
-.gradient-3{
+.blur{
   position:absolute;
   border-radius:50%;
   filter:blur(120px);
 }
 
-.gradient-1{
+.blur.one{
   width:500px;
   height:500px;
-  background:#c9fff3;
-  top:-100px;
+  background:#baf4e5;
+  top:-120px;
   left:-100px;
 }
 
-.gradient-2{
+.blur.two{
   width:450px;
   height:450px;
-  background:#d8eaff;
-  bottom:-120px;
-  right:-120px;
+  background:#d9ebff;
+  bottom:-100px;
+  right:-100px;
 }
 
-.gradient-3{
+.blur.three{
   width:300px;
   height:300px;
-  background:#ffffff;
+  background:white;
   top:40%;
   left:50%;
   transform:translate(-50%,-50%);
 }
 
-/* ========================= */
+/* floating particles */
+
+.particle{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,0.7);
+  animation:floatParticle 10s linear infinite;
+}
+
+.particle:nth-child(1){
+  width:8px;
+  height:8px;
+  top:20%;
+  left:15%;
+}
+
+.particle:nth-child(2){
+  width:14px;
+  height:14px;
+  top:60%;
+  left:80%;
+}
+
+.particle:nth-child(3){
+  width:10px;
+  height:10px;
+  top:75%;
+  left:25%;
+}
+
+@keyframes floatParticle{
+
+  0%{
+    transform:translateY(0px);
+    opacity:0.5;
+  }
+
+  50%{
+    transform:translateY(-30px);
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(0px);
+    opacity:0.5;
+  }
+
+}
+
+/* ================================= */
 /* NAVBAR */
-/* ========================= */
+/* ================================= */
 
 .navbar{
   width:100%;
@@ -128,54 +136,53 @@ body{
   z-index:10;
 }
 
-.nav-btn{
-  border:none;
-  background:rgba(255,255,255,0.35);
-  backdrop-filter:blur(12px);
-  padding:14px 24px;
-  border-radius:999px;
-  font-size:14px;
-  cursor:pointer;
-  transition:0.3s ease;
-  color:#183b4e;
-  border:1px solid rgba(255,255,255,0.45);
-}
-
-.nav-btn:hover{
-  transform:translateY(-2px);
-  background:rgba(255,255,255,0.55);
-}
-
 .logo{
-  font-size:22px;
+  font-size:24px;
   font-weight:700;
   letter-spacing:-1px;
 }
 
-/* ========================= */
+.nav-btn{
+  border:none;
+  background:rgba(255,255,255,0.35);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.45);
+  padding:14px 24px;
+  border-radius:999px;
+  cursor:pointer;
+  color:#183b4e;
+  transition:0.3s ease;
+}
+
+.nav-btn:hover{
+  transform:translateY(-3px);
+  background:rgba(255,255,255,0.55);
+}
+
+/* ================================= */
 /* HERO */
-/* ========================= */
+/* ================================= */
 
 .hero{
-  min-height:calc(100vh - 100px);
+  min-height:calc(100vh - 90px);
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:40px 60px 100px;
+  padding:30px 60px 100px;
 }
 
 .hero-wrapper{
   width:100%;
-  max-width:1300px;
+  max-width:1350px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:80px;
 }
 
-/* ========================= */
+/* ================================= */
 /* LEFT CONTENT */
-/* ========================= */
+/* ================================= */
 
 .hero-content{
   flex:1;
@@ -185,7 +192,7 @@ body{
   display:inline-flex;
   align-items:center;
   gap:10px;
-  padding:12px 18px;
+  padding:12px 20px;
   border-radius:999px;
   background:rgba(255,255,255,0.45);
   backdrop-filter:blur(14px);
@@ -195,57 +202,59 @@ body{
 }
 
 .hero-content h1{
-  font-size:72px;
-  line-height:0.95;
-  letter-spacing:-3px;
-  margin-bottom:24px;
+  font-size:78px;
+  line-height:0.92;
+  letter-spacing:-4px;
+  margin-bottom:26px;
 }
 
 .quote{
   font-family:'Amita',cursive;
   font-size:30px;
   color:#4f7c82;
-  margin-bottom:24px;
+  margin-bottom:20px;
 }
 
 .description{
   max-width:620px;
   line-height:1.9;
   font-size:17px;
-  margin-bottom:38px;
-  color:#466173;
+  color:#496274;
+  margin-bottom:40px;
 }
 
-/* ========================= */
+/* ================================= */
 /* BUTTONS */
-/* ========================= */
+/* ================================= */
 
 .hero-buttons{
   display:flex;
   gap:18px;
+  flex-wrap:wrap;
 }
 
 .primary-btn{
+  border:none;
   background:#7dd3c7;
   color:white;
-  border:none;
-  padding:18px 30px;
-  border-radius:20px;
+  padding:18px 32px;
+  border-radius:22px;
   cursor:pointer;
   font-size:15px;
   transition:0.3s ease;
-  box-shadow:0 10px 30px rgba(125,211,199,0.35);
+  box-shadow:0 15px 40px rgba(125,211,199,0.35);
 }
 
 .secondary-btn{
-  background:rgba(255,255,255,0.45);
-  backdrop-filter:blur(12px);
   border:none;
-  padding:18px 28px;
-  border-radius:20px;
+  background:rgba(255,255,255,0.45);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.5);
+  padding:18px 30px;
+  border-radius:22px;
   cursor:pointer;
   font-size:15px;
-  border:1px solid rgba(255,255,255,0.45);
+  transition:0.3s ease;
 }
 
 .primary-btn:hover,
@@ -253,85 +262,126 @@ body{
   transform:translateY(-4px);
 }
 
-/* ========================= */
-/* PORTRAIT SECTION */
-/* ========================= */
+/* ================================= */
+/* RIGHT VISUAL */
+/* ================================= */
 
 .hero-visual{
   flex:1;
+  position:relative;
   display:flex;
   justify-content:center;
-  position:relative;
+  align-items:center;
 }
 
-/* GLOW LIGHT */
+/* MAIN GLOW */
 
-.portrait-glow{
+.main-glow{
   position:absolute;
-  width:420px;
-  height:420px;
+  width:480px;
+  height:480px;
+  border-radius:50%;
   background:radial-gradient(
     circle,
-    rgba(125,211,199,0.55),
+    rgba(125,211,199,0.45),
     transparent 70%
   );
-  border-radius:50%;
-  filter:blur(20px);
+  filter:blur(25px);
   animation:floatGlow 6s ease-in-out infinite;
 }
 
-/* FLOATING CARD */
+/* MAIN PORTRAIT */
 
 .portrait-card{
-  width:380px;
+  width:390px;
   padding:18px;
-  border-radius:40px;
+  border-radius:42px;
   background:rgba(255,255,255,0.28);
-  backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,0.4);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.45);
   box-shadow:0 20px 60px rgba(0,0,0,0.08);
   position:relative;
-  z-index:2;
+  z-index:5;
   transition:0.4s ease;
 }
 
 .portrait-card:hover{
-  transform:translateY(-8px) scale(1.01);
+  transform:translateY(-8px);
 }
 
 .portrait-card img{
   width:100%;
-  border-radius:30px;
+  border-radius:32px;
   display:block;
 }
 
-/* FLOATING MINI CARD */
+/* SMALL FLOATING IMAGES */
 
-.floating-card{
+.mini-image{
   position:absolute;
-  bottom:20px;
-  left:-40px;
-  padding:18px 20px;
-  border-radius:24px;
-  background:rgba(255,255,255,0.4);
-  backdrop-filter:blur(16px);
+  width:140px;
+  height:170px;
+  border-radius:28px;
+  overflow:hidden;
+  padding:10px;
+  background:rgba(255,255,255,0.3);
+  backdrop-filter:blur(18px);
   border:1px solid rgba(255,255,255,0.45);
-  box-shadow:0 10px 40px rgba(0,0,0,0.06);
+  box-shadow:0 15px 40px rgba(0,0,0,0.08);
+  animation:floatCard 5s ease-in-out infinite;
 }
 
-.floating-card span{
+.mini-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:20px;
+}
+
+.card-1{
+  top:-40px;
+  right:-20px;
+}
+
+.card-2{
+  bottom:-30px;
+  right:40px;
+}
+
+.card-3{
+  left:-40px;
+  bottom:60px;
+}
+
+/* floating info */
+
+.floating-info{
+  position:absolute;
+  left:-60px;
+  top:60px;
+  padding:18px 22px;
+  border-radius:26px;
+  background:rgba(255,255,255,0.4);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.45);
+  box-shadow:0 10px 40px rgba(0,0,0,0.06);
+  z-index:8;
+}
+
+.floating-info span{
   font-size:13px;
   color:#4f7c82;
 }
 
-.floating-card h3{
+.floating-info h3{
   margin-top:8px;
-  font-size:18px;
+  font-size:19px;
+  line-height:1.4;
 }
 
-/* ========================= */
-/* ANIMATION */
-/* ========================= */
+/* ================================= */
+/* ANIMATIONS */
+/* ================================= */
 
 @keyframes floatGlow{
 
@@ -340,7 +390,7 @@ body{
   }
 
   50%{
-    transform:translateY(-20px);
+    transform:translateY(-25px);
   }
 
   100%{
@@ -349,24 +399,40 @@ body{
 
 }
 
-/* ========================= */
+@keyframes floatCard{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-12px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+/* ================================= */
 /* MOBILE */
-/* ========================= */
+/* ================================= */
 
 @media(max-width:980px){
 
   .hero-wrapper{
     flex-direction:column-reverse;
     text-align:center;
+    gap:50px;
   }
 
   .hero-content h1{
-    font-size:52px;
+    font-size:54px;
   }
 
   .hero-buttons{
     justify-content:center;
-    flex-wrap:wrap;
   }
 
   .navbar{
@@ -378,9 +444,24 @@ body{
     max-width:360px;
   }
 
-  .floating-card{
+  .mini-image{
+    width:100px;
+    height:130px;
+  }
+
+  .floating-info{
+    position:relative;
     left:0;
-    bottom:-20px;
+    top:20px;
+    margin:auto;
+  }
+
+  .card-1{
+    right:0;
+  }
+
+  .card-3{
+    left:0;
   }
 
 }
@@ -390,21 +471,25 @@ body{
 
 <body>
 
-<!-- ========================= -->
+<!-- ================================= -->
 <!-- BACKGROUND -->
-<!-- ========================= -->
+<!-- ================================= -->
 
 <div class="background">
 
-  <div class="gradient-1"></div>
-  <div class="gradient-2"></div>
-  <div class="gradient-3"></div>
+  <div class="blur one"></div>
+  <div class="blur two"></div>
+  <div class="blur three"></div>
+
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
 
 </div>
 
-<!-- ========================= -->
+<!-- ================================= -->
 <!-- NAVBAR -->
-<!-- ========================= -->
+<!-- ================================= -->
 
 <nav class="navbar">
 
@@ -422,15 +507,15 @@ body{
 
 </nav>
 
-<!-- ========================= -->
+<!-- ================================= -->
 <!-- HERO -->
-<!-- ========================= -->
+<!-- ================================= -->
 
 <section class="hero">
 
   <div class="hero-wrapper">
 
-    <!-- LEFT CONTENT -->
+    <!-- LEFT -->
 
     <div class="hero-content">
 
@@ -451,9 +536,8 @@ body{
       <p class="description">
 
         Real ward experiences, practical clinical survival guides,
-        healthcare confidence systems, and emotional preparation
-        for future healthcare professionals navigating the journey
-        from student to caregiver.
+        emotional preparation systems, healthcare confidence building,
+        and mentorship designed for future healthcare professionals.
 
       </p>
 
@@ -471,23 +555,43 @@ body{
 
     </div>
 
-    <!-- RIGHT VISUAL -->
+    <!-- RIGHT -->
 
     <div class="hero-visual">
 
-      <div class="portrait-glow"></div>
+      <div class="main-glow"></div>
+
+      <!-- MAIN PORTRAIT -->
 
       <div class="portrait-card">
 
-        <!-- HER IMAGE -->
-
-        <img src="assets/creator.jpg" alt="CHEW Creator">
+        <img src="https://i.postimg.cc/pXGmKJ1Q/028d1d49-d6f5-42ec-93b0-b134e00bd49c.jpg" alt="Creator">
 
       </div>
 
-      <!-- FLOATING MINI CARD -->
+      <!-- SMALL FLOATING IMAGES -->
 
-      <div class="floating-card">
+      <div class="mini-image card-1">
+
+        <img src="https://i.postimg.cc/502c5Lrk/620698dd-f5c1-482e-8777-6487c4a1a025.jpg">
+
+      </div>
+
+      <div class="mini-image card-2">
+
+        <img src="https://i.postimg.cc/QtdLg1zP/6ade7775-4b1d-4f0c-aafd-26890e165bf4.jpg">
+
+      </div>
+
+      <div class="mini-image card-3">
+
+        <img src="https://i.postimg.cc/Kz8X7BWC/93646fdf-c196-4563-9368-341bb6e7cb75.jpg">
+
+      </div>
+
+      <!-- FLOATING INFO -->
+
+      <div class="floating-info">
 
         <span>Healthcare Journey</span>
 
