@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>CHEW In Training</title>
+
+  <link rel="stylesheet" href="style.css"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amita:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- BACKGROUND -->
+  <div class="bg-gradient"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-card glass">
+
+      <div class="hero-image">
+        <img src="assets/student.jpg" alt="">
+      </div>
+
+      <div class="hero-content">
+
+        <span class="badge">
+          Healthcare Student Platform
+        </span>
+
+        <h1>
+          CHEW In Training
+        </h1>
+
+        <p class="quote">
+          “Every confident healthcare worker was once afraid.”
+        </p>
+
+        <p class="description">
+          Real ward experiences, practical survival guides,
+          emotional healthcare journeys, and educational resources
+          for future healthcare professionals.
+        </p>
+
+        <div class="hero-buttons">
+
+          <button class="primary-btn">
+            Explore Resources
+          </button>
+
+          <button class="glass-btn">
+            Ward Archive
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- RESOURCE SECTION -->
+  <section class="resources">
+
+    <div class="section-title">
+      <h2>Educational Resources</h2>
+      <p>Built for confidence, not just memorization.</p>
+    </div>
+
+    <div class="resource-grid" id="resourceGrid">
+
+      <!-- injected by JS -->
+
+    </div>
+
+  </section>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+
+    <div class="modal-card glass">
+
+      <button class="close-btn" id="closeBtn">
+        ×
+      </button>
+
+      <div class="modal-content">
+
+        <div class="preview-side">
+
+          <img id="modalImage" src="" alt="">
+
+        </div>
+
+        <div class="details-side">
+
+          <span class="modal-category" id="modalCategory"></span>
+
+          <h2 id="modalTitle"></h2>
+
+          <p class="modal-description" id="modalDescription"></p>
+
+          <ul id="modalBenefits"></ul>
+
+          <a id="gumroadBtn" href="#" target="_blank">
+            Get Access
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
