@@ -1,118 +1,499 @@
+<!-- ============================= -->
+<!-- UPDATED HERO + NAVBAR VERSION -->
+<!-- CHANGES MADE FROM PREVIOUS UI -->
+<!-- ============================= -->
+
+<!--
+1. NEW MINIMAL NAVBAR
+   - Left button = Resources
+   - Center = CHEW In Training
+   - Right button = Gallery
+
+2. NEW HERO LAYOUT
+   - Split layout
+   - Left side text
+   - Right side portrait card
+
+3. NEW FLOATING PORTRAIT CARD
+   - Rounded image card
+   - Glow light behind image
+   - Glassmorphism styling
+   - Floating atmosphere
+
+4. NEW ATMOSPHERIC BACKGROUND
+   - Soft radial gradients
+   - Floating blur circles
+   - Healthcare calm aesthetic
+
+5. NEW CREATOR/MENTOR FEEL
+   - Human-centered layout
+   - Emotional trust direction
+   - Less “ebook store”
+   - More “healthcare mentorship ecosystem”
+
+6. NEW VISUAL HIERARCHY
+   - Face becomes emotional anchor
+   - CTA area cleaner
+   - Better breathing space
+
+7. NEW MICRO DETAILS
+   - Floating particles
+   - Soft hover interactions
+   - Glass depth layering
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>CHEW In Training</title>
+<title>CHEW In Training</title>
 
-  <link rel="stylesheet" href="style.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amita:wght@400;700&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amita:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#eef7ff;
+  overflow-x:hidden;
+  color:#183b4e;
+}
+
+/* ========================= */
+/* BACKGROUND ATMOSPHERE */
+/* ========================= */
+
+.background{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:-5;
+}
+
+.gradient-1,
+.gradient-2,
+.gradient-3{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(120px);
+}
+
+.gradient-1{
+  width:500px;
+  height:500px;
+  background:#c9fff3;
+  top:-100px;
+  left:-100px;
+}
+
+.gradient-2{
+  width:450px;
+  height:450px;
+  background:#d8eaff;
+  bottom:-120px;
+  right:-120px;
+}
+
+.gradient-3{
+  width:300px;
+  height:300px;
+  background:#ffffff;
+  top:40%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+
+.navbar{
+  width:100%;
+  padding:28px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+  z-index:10;
+}
+
+.nav-btn{
+  border:none;
+  background:rgba(255,255,255,0.35);
+  backdrop-filter:blur(12px);
+  padding:14px 24px;
+  border-radius:999px;
+  font-size:14px;
+  cursor:pointer;
+  transition:0.3s ease;
+  color:#183b4e;
+  border:1px solid rgba(255,255,255,0.45);
+}
+
+.nav-btn:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,0.55);
+}
+
+.logo{
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:-1px;
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero{
+  min-height:calc(100vh - 100px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 60px 100px;
+}
+
+.hero-wrapper{
+  width:100%;
+  max-width:1300px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:80px;
+}
+
+/* ========================= */
+/* LEFT CONTENT */
+/* ========================= */
+
+.hero-content{
+  flex:1;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.45);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.5);
+  margin-bottom:28px;
+  font-size:14px;
+}
+
+.hero-content h1{
+  font-size:72px;
+  line-height:0.95;
+  letter-spacing:-3px;
+  margin-bottom:24px;
+}
+
+.quote{
+  font-family:'Amita',cursive;
+  font-size:30px;
+  color:#4f7c82;
+  margin-bottom:24px;
+}
+
+.description{
+  max-width:620px;
+  line-height:1.9;
+  font-size:17px;
+  margin-bottom:38px;
+  color:#466173;
+}
+
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
+
+.hero-buttons{
+  display:flex;
+  gap:18px;
+}
+
+.primary-btn{
+  background:#7dd3c7;
+  color:white;
+  border:none;
+  padding:18px 30px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:15px;
+  transition:0.3s ease;
+  box-shadow:0 10px 30px rgba(125,211,199,0.35);
+}
+
+.secondary-btn{
+  background:rgba(255,255,255,0.45);
+  backdrop-filter:blur(12px);
+  border:none;
+  padding:18px 28px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:15px;
+  border:1px solid rgba(255,255,255,0.45);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+  transform:translateY(-4px);
+}
+
+/* ========================= */
+/* PORTRAIT SECTION */
+/* ========================= */
+
+.hero-visual{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  position:relative;
+}
+
+/* GLOW LIGHT */
+
+.portrait-glow{
+  position:absolute;
+  width:420px;
+  height:420px;
+  background:radial-gradient(
+    circle,
+    rgba(125,211,199,0.55),
+    transparent 70%
+  );
+  border-radius:50%;
+  filter:blur(20px);
+  animation:floatGlow 6s ease-in-out infinite;
+}
+
+/* FLOATING CARD */
+
+.portrait-card{
+  width:380px;
+  padding:18px;
+  border-radius:40px;
+  background:rgba(255,255,255,0.28);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.4);
+  box-shadow:0 20px 60px rgba(0,0,0,0.08);
+  position:relative;
+  z-index:2;
+  transition:0.4s ease;
+}
+
+.portrait-card:hover{
+  transform:translateY(-8px) scale(1.01);
+}
+
+.portrait-card img{
+  width:100%;
+  border-radius:30px;
+  display:block;
+}
+
+/* FLOATING MINI CARD */
+
+.floating-card{
+  position:absolute;
+  bottom:20px;
+  left:-40px;
+  padding:18px 20px;
+  border-radius:24px;
+  background:rgba(255,255,255,0.4);
+  backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.45);
+  box-shadow:0 10px 40px rgba(0,0,0,0.06);
+}
+
+.floating-card span{
+  font-size:13px;
+  color:#4f7c82;
+}
+
+.floating-card h3{
+  margin-top:8px;
+  font-size:18px;
+}
+
+/* ========================= */
+/* ANIMATION */
+/* ========================= */
+
+@keyframes floatGlow{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-20px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:980px){
+
+  .hero-wrapper{
+    flex-direction:column-reverse;
+    text-align:center;
+  }
+
+  .hero-content h1{
+    font-size:52px;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .navbar{
+    padding:20px;
+  }
+
+  .portrait-card{
+    width:100%;
+    max-width:360px;
+  }
+
+  .floating-card{
+    left:0;
+    bottom:-20px;
+  }
+
+}
+
+</style>
 </head>
+
 <body>
 
-  <!-- BACKGROUND -->
-  <div class="bg-gradient"></div>
+<!-- ========================= -->
+<!-- BACKGROUND -->
+<!-- ========================= -->
 
-  <!-- HERO -->
-  <section class="hero">
+<div class="background">
 
-    <div class="hero-card glass">
+  <div class="gradient-1"></div>
+  <div class="gradient-2"></div>
+  <div class="gradient-3"></div>
 
-      <div class="hero-image">
-        <img src="assets/student.jpg" alt="">
+</div>
+
+<!-- ========================= -->
+<!-- NAVBAR -->
+<!-- ========================= -->
+
+<nav class="navbar">
+
+  <button class="nav-btn">
+    Resources
+  </button>
+
+  <div class="logo">
+    CHEW In Training
+  </div>
+
+  <button class="nav-btn">
+    Gallery
+  </button>
+
+</nav>
+
+<!-- ========================= -->
+<!-- HERO -->
+<!-- ========================= -->
+
+<section class="hero">
+
+  <div class="hero-wrapper">
+
+    <!-- LEFT CONTENT -->
+
+    <div class="hero-content">
+
+      <div class="badge">
+        Future Healthcare Professional Platform
       </div>
 
-      <div class="hero-content">
+      <h1>
+        Learn.<br>
+        Heal.<br>
+        Grow.
+      </h1>
 
-        <span class="badge">
-          Healthcare Student Platform
-        </span>
+      <p class="quote">
+        “Every confident healthcare worker was once afraid.”
+      </p>
 
-        <h1>
-          CHEW In Training
-        </h1>
+      <p class="description">
 
-        <p class="quote">
-          “Every confident healthcare worker was once afraid.”
-        </p>
+        Real ward experiences, practical clinical survival guides,
+        healthcare confidence systems, and emotional preparation
+        for future healthcare professionals navigating the journey
+        from student to caregiver.
 
-        <p class="description">
-          Real ward experiences, practical survival guides,
-          emotional healthcare journeys, and educational resources
-          for future healthcare professionals.
-        </p>
+      </p>
 
-        <div class="hero-buttons">
+      <div class="hero-buttons">
 
-          <button class="primary-btn">
-            Explore Resources
-          </button>
+        <button class="primary-btn">
+          Explore Resources
+        </button>
 
-          <button class="glass-btn">
-            Ward Archive
-          </button>
-
-        </div>
+        <button class="secondary-btn">
+          Enter Ward Archive
+        </button>
 
       </div>
 
     </div>
 
-  </section>
+    <!-- RIGHT VISUAL -->
 
-  <!-- RESOURCE SECTION -->
-  <section class="resources">
+    <div class="hero-visual">
 
-    <div class="section-title">
-      <h2>Educational Resources</h2>
-      <p>Built for confidence, not just memorization.</p>
-    </div>
+      <div class="portrait-glow"></div>
 
-    <div class="resource-grid" id="resourceGrid">
+      <div class="portrait-card">
 
-      <!-- injected by JS -->
+        <!-- HER IMAGE -->
 
-    </div>
+        <img src="assets/creator.jpg" alt="CHEW Creator">
 
-  </section>
+      </div>
 
-  <!-- MODAL -->
-  <div class="modal" id="modal">
+      <!-- FLOATING MINI CARD -->
 
-    <div class="modal-card glass">
+      <div class="floating-card">
 
-      <button class="close-btn" id="closeBtn">
-        ×
-      </button>
+        <span>Healthcare Journey</span>
 
-      <div class="modal-content">
-
-        <div class="preview-side">
-
-          <img id="modalImage" src="" alt="">
-
-        </div>
-
-        <div class="details-side">
-
-          <span class="modal-category" id="modalCategory"></span>
-
-          <h2 id="modalTitle"></h2>
-
-          <p class="modal-description" id="modalDescription"></p>
-
-          <ul id="modalBenefits"></ul>
-
-          <a id="gumroadBtn" href="#" target="_blank">
-            Get Access
-          </a>
-
-        </div>
+        <h3>
+          Building Confidence Through Experience
+        </h3>
 
       </div>
 
@@ -120,7 +501,7 @@
 
   </div>
 
-  <script src="app.js"></script>
+</section>
 
 </body>
 </html>
