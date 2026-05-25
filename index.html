@@ -1,340 +1,275 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>CHEW In Training</title>
+<!-- ========================================= -->
+<!-- CHEW IN TRAINING — MULTI PAGE SYSTEM -->
+<!-- index.html + gallery.html + resources.html -->
+<!-- ========================================= -->
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amita:wght@400;700&display=swap" rel="stylesheet">
+<!-- ========================= -->
+<!-- SHARED STYLES (COPY INTO style.css OR EACH PAGE) -->
+<!-- ========================= -->
 
 <style>
-
-/* ========================= */
-/* BASE */
-/* ========================= */
 
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
+  font-family:'Inter',sans-serif;
 }
 
 body{
-  font-family:'Inter',sans-serif;
-  background:#eef7ff;
-  overflow-x:hidden;
+  background:#edf7ff;
   color:#16384d;
 }
 
-/* ========================= */
-/* BACKGROUND */
-/* ========================= */
-
-.background{
-  position:fixed;
-  inset:0;
-  z-index:-10;
-  overflow:hidden;
-}
-
-.blur{
-  position:absolute;
-  border-radius:50%;
-  filter:blur(120px);
-}
-
-.blur.one{
-  width:500px;height:500px;
-  background:#baf4e5;
-  top:-120px;left:-100px;
-}
-
-.blur.two{
-  width:450px;height:450px;
-  background:#d9ebff;
-  bottom:-120px;right:-120px;
-}
-
-.blur.three{
-  width:300px;height:300px;
-  background:white;
-  top:40%;left:50%;
-  transform:translate(-50%,-50%);
-}
-
-/* ========================= */
-/* NAV */
-/* ========================= */
-
+/* NAVBAR */
 .navbar{
-  width:100%;
-  padding:26px 60px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-}
-
-.logo{
-  font-size:24px;
-  font-weight:700;
+  padding:22px 50px;
+  background:rgba(255,255,255,0.3);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.4);
 }
 
 .nav-btn{
-  padding:14px 22px;
+  padding:12px 20px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,0.5);
-  background:rgba(255,255,255,0.35);
-  backdrop-filter:blur(12px);
-  cursor:pointer;
+  border:1px solid rgba(255,255,255,0.4);
+  background:rgba(255,255,255,0.4);
+  text-decoration:none;
+  color:#16384d;
+  transition:0.3s;
+}
+
+.nav-btn:hover{
+  transform:translateY(-3px);
+}
+
+.logo a{
+  text-decoration:none;
+  color:#16384d;
+  font-weight:700;
+  font-size:20px;
 }
 
 /* ========================= */
-/* HERO */
+/* HOME PAGE */
 /* ========================= */
 
 .hero{
-  min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:40px 60px;
+  padding:80px 50px;
+  min-height:90vh;
+  gap:60px;
 }
 
-.hero-wrapper{
-  width:100%;
-  max-width:1300px;
-  display:flex;
-  gap:80px;
-  align-items:center;
-}
-
-/* ========================= */
-/* LEFT */
-/* ========================= */
-
-.hero-content{
-  flex:1;
-}
-
-.hero-content h1{
-  font-size:72px;
+.hero-text h1{
+  font-size:70px;
   line-height:0.95;
-  letter-spacing:-3px;
 }
 
-.quote{
-  font-family:'Amita',cursive;
-  font-size:28px;
-  margin:18px 0;
-  color:#4f7c82;
+.hero-text p{
+  margin-top:20px;
+  max-width:500px;
+  line-height:1.7;
 }
 
-.description{
-  max-width:600px;
-  line-height:1.8;
-  color:#4a6572;
-}
-
-/* ========================= */
-/* RIGHT HERO VISUAL SYSTEM */
-/* ========================= */
-
-.hero-visual{
-  flex:1;
+.hero-buttons{
+  margin-top:30px;
   display:flex;
-  justify-content:center;
-  position:relative;
+  gap:15px;
 }
 
-/* glow */
-.glow{
-  position:absolute;
-  width:520px;
-  height:520px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(125,211,199,0.35), transparent 70%);
-  filter:blur(30px);
+.primary{
+  background:#7dd3c7;
+  color:white;
+  padding:14px 24px;
+  border-radius:15px;
+  text-decoration:none;
 }
 
-/* ========================= */
-/* MAIN PORTRAIT (FIXED - NO CROPPING LOSS) */
-/* ========================= */
-
-.portrait-card{
-  width:360px;
-  height:auto;
-  padding:14px;
-  border-radius:40px;
-  background:rgba(255,255,255,0.25);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,0.45);
-  box-shadow:0 25px 70px rgba(0,0,0,0.1);
-  z-index:5;
+.secondary{
+  background:rgba(255,255,255,0.5);
+  padding:14px 24px;
+  border-radius:15px;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,0.5);
 }
 
-.portrait-card img{
-  width:100%;
-  height:auto;           /* 🔥 FIX #1 */
-  max-height:520px;
-  object-fit:contain;    /* 🔥 NO FACE CUTTING */
-  display:block;
+.hero-img img{
+  width:350px;
   border-radius:30px;
-  background:#f6fbff;    /* soft medical canvas */
-  padding:10px;
 }
 
 /* ========================= */
-/* MINI STORY CARDS (SAFE CROPPING SYSTEM) */
+/* GALLERY */
 /* ========================= */
 
-.mini{
-  position:absolute;
-  width:120px;
-  height:150px;
-  border-radius:22px;
+.gallery{
+  padding:80px 50px;
+}
+
+.gallery h1{
+  text-align:center;
+  font-size:45px;
+  margin-bottom:40px;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.gallery-card{
+  border-radius:20px;
   overflow:hidden;
   background:rgba(255,255,255,0.3);
-  backdrop-filter:blur(14px);
+  backdrop-filter:blur(12px);
   border:1px solid rgba(255,255,255,0.4);
-  box-shadow:0 15px 40px rgba(0,0,0,0.08);
 }
 
-.mini img{
+.gallery-card img{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center top; /* keeps faces safe */
-  display:block;
+  transition:0.3s;
 }
 
-/* positions */
-.mini.one{ top:-40px; right:-30px; }
-.mini.two{ bottom:-30px; right:30px; }
-.mini.three{ left:-40px; bottom:90px; }
+.gallery-card img:hover{
+  transform:scale(1.05);
+}
 
 /* ========================= */
-/* FLOAT INFO */
+/* RESOURCES PAGE */
 /* ========================= */
 
-.info{
-  position:absolute;
-  left:-60px;
-  top:60px;
-  padding:16px 20px;
-  border-radius:22px;
+.resources{
+  padding:80px 50px;
+}
+
+.resource-card{
   background:rgba(255,255,255,0.4);
-  backdrop-filter:blur(16px);
-  border:1px solid rgba(255,255,255,0.45);
+  border:1px solid rgba(255,255,255,0.4);
+  backdrop-filter:blur(12px);
+  padding:20px;
+  border-radius:20px;
+  margin-bottom:20px;
 }
 
-/* ========================= */
-/* ANIMATION */
-/* ========================= */
-
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-18px);}
-}
-
-/* ========================= */
-/* MOBILE */
-/* ========================= */
-
-@media(max-width:900px){
-
-.hero-wrapper{
-  flex-direction:column-reverse;
-  text-align:center;
-  gap:50px;
-}
-
-.hero-content h1{
-  font-size:48px;
-}
-
-.portrait-card{
-  width:320px;
-}
-
-.mini{
-  width:90px;
-  height:110px;
-}
-
-.info{
-  position:relative;
-  left:0;
-  top:20px;
-}
-
+.resource-card h3{
+  margin-bottom:10px;
 }
 
 </style>
-</head>
 
-<body>
+<!-- ========================================= -->
+<!-- 1. HOME PAGE (index.html) -->
+<!-- ========================================= -->
 
-<div class="background">
-  <div class="blur one"></div>
-  <div class="blur two"></div>
-  <div class="blur three"></div>
-</div>
-
+<!-- NAVBAR -->
 <nav class="navbar">
-  <button class="nav-btn">Resources</button>
-  <div class="logo">CHEW In Training</div>
-  <button class="nav-btn">Gallery</button>
+  <div class="logo"><a href="index.html">CHEW In Training</a></div>
+  <a href="resources.html" class="nav-btn">Resources</a>
+  <a href="gallery.html" class="nav-btn">Gallery</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
 
-<div class="hero-wrapper">
+  <div class="hero-text">
 
-<!-- LEFT -->
-<div class="hero-content">
-  <h1>Learn.<br>Heal.<br>Grow.</h1>
+    <h1>Learn.<br>Heal.<br>Grow.</h1>
 
-  <p class="quote">
-    “Every confident healthcare worker was once afraid.”
-  </p>
+    <p>
+      A healthcare training ecosystem built for CHEW students —
+      combining real ward experiences, emotional preparation,
+      and practical survival knowledge.
+    </p>
 
-  <p class="description">
-    Real clinical experience system designed for CHEW trainees to build confidence through practice and mentorship.
-  </p>
-</div>
+    <div class="hero-buttons">
+      <a href="resources.html" class="primary">Explore Resources</a>
+      <a href="gallery.html" class="secondary">View Gallery</a>
+    </div>
 
-<!-- RIGHT -->
-<div class="hero-visual">
-
-  <div class="glow"></div>
-
-  <!-- MAIN IMAGE (FIXED) -->
-  <div class="portrait-card">
-    <img src="https://i.postimg.cc/pXGmKJ1Q/028d1d49-d6f5-42ec-93b0-b134e00bd49c.jpg" />
   </div>
 
-  <!-- MINI IMAGES -->
-  <div class="mini one">
-    <img src="https://i.postimg.cc/502c5Lrk/620698dd-f5c1-482e-8777-6487c4a1a025.jpg" />
+  <div class="hero-img">
+    <img src="https://i.postimg.cc/pXGmKJ1Q/028d1d49-d6f5-42ec-93b0-b134e00bd49c.jpg">
   </div>
-
-  <div class="mini two">
-    <img src="https://i.postimg.cc/QtdLg1zP/6ade7775-4b1d-4f0c-aafd-26890e165bf4.jpg" />
-  </div>
-
-  <div class="mini three">
-    <img src="https://i.postimg.cc/Kz8X7BWC/93646fdf-c196-4563-9368-341bb6e7cb75.jpg" />
-  </div>
-
-  <div class="info">
-    Healthcare Journey<br><b>Confidence Through Experience</b>
-  </div>
-
-</div>
-
-</div>
 
 </section>
 
-</body>
-</html>
+<!-- ========================================= -->
+<!-- 2. GALLERY PAGE (gallery.html) -->
+<!-- ========================================= -->
+
+<nav class="navbar">
+  <div class="logo"><a href="index.html">CHEW In Training</a></div>
+  <a href="resources.html" class="nav-btn">Resources</a>
+  <a href="gallery.html" class="nav-btn">Gallery</a>
+</nav>
+
+<section class="gallery">
+
+  <h1>Visual Journey</h1>
+
+  <div class="gallery-grid">
+
+    <div class="gallery-card">
+      <img src="https://i.postimg.cc/pXGmKJ1Q/028d1d49-d6f5-42ec-93b0-b134e00bd49c.jpg">
+    </div>
+
+    <div class="gallery-card">
+      <img src="https://i.postimg.cc/502c5Lrk/620698dd-f5c1-482e-8777-6487c4a1a025.jpg">
+    </div>
+
+    <div class="gallery-card">
+      <img src="https://i.postimg.cc/QtdLg1zP/6ade7775-4b1d-4f0c-aafd-26890e165bf4.jpg">
+    </div>
+
+    <div class="gallery-card">
+      <img src="https://i.postimg.cc/Kz8X7BWC/93646fdf-c196-4563-9368-341bb6e7cb75.jpg">
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- 3. RESOURCES PAGE (resources.html) -->
+<!-- ========================================= -->
+
+<nav class="navbar">
+  <div class="logo"><a href="index.html">CHEW In Training</a></div>
+  <a href="resources.html" class="nav-btn">Resources</a>
+  <a href="gallery.html" class="nav-btn">Gallery</a>
+</nav>
+
+<section class="resources">
+
+  <h1 style="text-align:center;margin-bottom:40px;font-size:40px;">
+    Training Resources
+  </h1>
+
+  <div class="resource-card">
+    <h3>Ward Experience 01</h3>
+    <p>Real clinical exposure breakdown for beginners entering healthcare practice.</p>
+  </div>
+
+  <div class="resource-card">
+    <h3>Patient Communication Guide</h3>
+    <p>How to speak with patients with confidence, empathy, and clarity.</p>
+  </div>
+
+  <div class="resource-card">
+    <h3>Clinical Survival Kit</h3>
+    <p>Essential mental + practical tools every CHEW student must know.</p>
+  </div>
+
+</section>
