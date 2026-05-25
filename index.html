@@ -1,7 +1,3 @@
-<!-- ========================================= -->
-<!-- CHEW IN TRAINING — FINAL HERO FIXED VERSION -->
-<!-- ========================================= -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +10,7 @@
 <style>
 
 /* ========================= */
-/* GLOBAL RESET */
+/* BASE */
 /* ========================= */
 
 *{
@@ -67,12 +63,12 @@ body{
 }
 
 /* ========================= */
-/* NAVBAR */
+/* NAV */
 /* ========================= */
 
 .navbar{
   width:100%;
-  padding:28px 60px;
+  padding:26px 60px;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -86,14 +82,14 @@ body{
 .nav-btn{
   padding:14px 22px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,0.45);
+  border:1px solid rgba(255,255,255,0.5);
   background:rgba(255,255,255,0.35);
   backdrop-filter:blur(12px);
   cursor:pointer;
 }
 
 /* ========================= */
-/* HERO LAYOUT */
+/* HERO */
 /* ========================= */
 
 .hero{
@@ -113,7 +109,7 @@ body{
 }
 
 /* ========================= */
-/* LEFT SIDE */
+/* LEFT */
 /* ========================= */
 
 .hero-content{
@@ -121,7 +117,7 @@ body{
 }
 
 .hero-content h1{
-  font-size:74px;
+  font-size:72px;
   line-height:0.95;
   letter-spacing:-3px;
 }
@@ -129,7 +125,7 @@ body{
 .quote{
   font-family:'Amita',cursive;
   font-size:28px;
-  margin:20px 0;
+  margin:18px 0;
   color:#4f7c82;
 }
 
@@ -140,7 +136,7 @@ body{
 }
 
 /* ========================= */
-/* RIGHT SIDE (FIXED SYSTEM) */
+/* RIGHT HERO VISUAL SYSTEM */
 /* ========================= */
 
 .hero-visual{
@@ -150,60 +146,56 @@ body{
   position:relative;
 }
 
-/* MAIN GLOW */
+/* glow */
 .glow{
   position:absolute;
-  width:500px;
-  height:500px;
+  width:520px;
+  height:520px;
   border-radius:50%;
-  background:radial-gradient(circle, rgba(125,211,199,0.4), transparent 70%);
+  background:radial-gradient(circle, rgba(125,211,199,0.35), transparent 70%);
   filter:blur(30px);
-  animation:float 6s ease-in-out infinite;
 }
 
 /* ========================= */
-/* MAIN PORTRAIT (FIXED) */
+/* MAIN PORTRAIT (FIXED - NO CROPPING LOSS) */
 /* ========================= */
 
 .portrait-card{
   width:360px;
-  height:520px;
+  height:auto;
+  padding:14px;
   border-radius:40px;
-  overflow:hidden;
   background:rgba(255,255,255,0.25);
   backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,0.4);
+  border:1px solid rgba(255,255,255,0.45);
   box-shadow:0 25px 70px rgba(0,0,0,0.1);
-  position:relative;
   z-index:5;
-  transition:0.4s ease;
-}
-
-.portrait-card:hover{
-  transform:translateY(-10px);
 }
 
 .portrait-card img{
   width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:top center;
+  height:auto;           /* 🔥 FIX #1 */
+  max-height:520px;
+  object-fit:contain;    /* 🔥 NO FACE CUTTING */
   display:block;
+  border-radius:30px;
+  background:#f6fbff;    /* soft medical canvas */
+  padding:10px;
 }
 
 /* ========================= */
-/* FLOATING MINI CARDS (FIXED GRID) */
+/* MINI STORY CARDS (SAFE CROPPING SYSTEM) */
 /* ========================= */
 
 .mini{
   position:absolute;
   width:120px;
   height:150px;
-  border-radius:24px;
+  border-radius:22px;
   overflow:hidden;
   background:rgba(255,255,255,0.3);
-  backdrop-filter:blur(16px);
-  border:1px solid rgba(255,255,255,0.45);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.4);
   box-shadow:0 15px 40px rgba(0,0,0,0.08);
 }
 
@@ -211,27 +203,17 @@ body{
   width:100%;
   height:100%;
   object-fit:cover;
+  object-position:center top; /* keeps faces safe */
+  display:block;
 }
 
-/* POSITIONING FIXED (NO OVERLAP BUG) */
-
-.mini.one{
-  top:-40px;
-  right:-30px;
-}
-
-.mini.two{
-  bottom:-30px;
-  right:20px;
-}
-
-.mini.three{
-  left:-40px;
-  bottom:80px;
-}
+/* positions */
+.mini.one{ top:-40px; right:-30px; }
+.mini.two{ bottom:-30px; right:30px; }
+.mini.three{ left:-40px; bottom:90px; }
 
 /* ========================= */
-/* FLOAT INFO CARD */
+/* FLOAT INFO */
 /* ========================= */
 
 .info{
@@ -251,11 +233,11 @@ body{
 
 @keyframes float{
   0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-20px);}
+  50%{transform:translateY(-18px);}
 }
 
 /* ========================= */
-/* MOBILE FIX */
+/* MOBILE */
 /* ========================= */
 
 @media(max-width:900px){
@@ -263,15 +245,15 @@ body{
 .hero-wrapper{
   flex-direction:column-reverse;
   text-align:center;
+  gap:50px;
 }
 
 .hero-content h1{
-  font-size:50px;
+  font-size:48px;
 }
 
 .portrait-card{
   width:320px;
-  height:460px;
 }
 
 .mini{
@@ -292,22 +274,20 @@ body{
 
 <body>
 
-<!-- BACKGROUND -->
 <div class="background">
   <div class="blur one"></div>
   <div class="blur two"></div>
   <div class="blur three"></div>
 </div>
 
-<!-- NAV -->
 <nav class="navbar">
   <button class="nav-btn">Resources</button>
   <div class="logo">CHEW In Training</div>
   <button class="nav-btn">Gallery</button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
+
 <div class="hero-wrapper">
 
 <!-- LEFT -->
@@ -319,7 +299,7 @@ body{
   </p>
 
   <p class="description">
-    Real clinical experiences, student survival systems, and healthcare mentorship designed for CHEW trainees.
+    Real clinical experience system designed for CHEW trainees to build confidence through practice and mentorship.
   </p>
 </div>
 
@@ -328,32 +308,32 @@ body{
 
   <div class="glow"></div>
 
-  <!-- MAIN IMAGE -->
+  <!-- MAIN IMAGE (FIXED) -->
   <div class="portrait-card">
-    <img src="https://i.postimg.cc/pXGmKJ1Q/028d1d49-d6f5-42ec-93b0-b134e00bd49c.jpg">
+    <img src="https://i.postimg.cc/pXGmKJ1Q/028d1d49-d6f5-42ec-93b0-b134e00bd49c.jpg" />
   </div>
 
-  <!-- FLOATING IMAGES -->
+  <!-- MINI IMAGES -->
   <div class="mini one">
-    <img src="https://i.postimg.cc/502c5Lrk/620698dd-f5c1-482e-8777-6487c4a1a025.jpg">
+    <img src="https://i.postimg.cc/502c5Lrk/620698dd-f5c1-482e-8777-6487c4a1a025.jpg" />
   </div>
 
   <div class="mini two">
-    <img src="https://i.postimg.cc/QtdLg1zP/6ade7775-4b1d-4f0c-aafd-26890e165bf4.jpg">
+    <img src="https://i.postimg.cc/QtdLg1zP/6ade7775-4b1d-4f0c-aafd-26890e165bf4.jpg" />
   </div>
 
   <div class="mini three">
-    <img src="https://i.postimg.cc/Kz8X7BWC/93646fdf-c196-4563-9368-341bb6e7cb75.jpg">
+    <img src="https://i.postimg.cc/Kz8X7BWC/93646fdf-c196-4563-9368-341bb6e7cb75.jpg" />
   </div>
 
-  <!-- INFO -->
   <div class="info">
-    Healthcare Journey<br><b>Confidence Through Practice</b>
+    Healthcare Journey<br><b>Confidence Through Experience</b>
   </div>
 
 </div>
 
 </div>
+
 </section>
 
 </body>
