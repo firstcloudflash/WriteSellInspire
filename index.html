@@ -1,11 +1,20 @@
 <!-- ========================================= -->
-<!-- CHEW IN TRAINING — MULTI PAGE SYSTEM -->
-<!-- index.html + gallery.html + resources.html -->
+<!-- CHEW IN TRAINING — CINEMATIC HERO VERSION -->
+<!-- UPDATED WITH REAL IMAGE PLACEMENTS -->
 <!-- ========================================= -->
 
-<!-- ========================= -->
-<!-- SHARED STYLES (COPY INTO style.css OR EACH PAGE) -->
-<!-- ========================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>CHEW In Training</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amita:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -13,263 +22,590 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Inter',sans-serif;
 }
 
 body{
+  font-family:'Inter',sans-serif;
   background:#edf7ff;
+  overflow-x:hidden;
   color:#16384d;
 }
 
+/* ================================= */
+/* BACKGROUND ATMOSPHERE */
+/* ================================= */
+
+.background{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:-10;
+}
+
+.blur{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(120px);
+}
+
+.blur.one{
+  width:500px;
+  height:500px;
+  background:#baf4e5;
+  top:-120px;
+  left:-100px;
+}
+
+.blur.two{
+  width:450px;
+  height:450px;
+  background:#d9ebff;
+  bottom:-100px;
+  right:-100px;
+}
+
+.blur.three{
+  width:300px;
+  height:300px;
+  background:white;
+  top:40%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+/* floating particles */
+
+.particle{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,0.7);
+  animation:floatParticle 10s linear infinite;
+}
+
+.particle:nth-child(1){
+  width:8px;
+  height:8px;
+  top:20%;
+  left:15%;
+}
+
+.particle:nth-child(2){
+  width:14px;
+  height:14px;
+  top:60%;
+  left:80%;
+}
+
+.particle:nth-child(3){
+  width:10px;
+  height:10px;
+  top:75%;
+  left:25%;
+}
+
+@keyframes floatParticle{
+
+  0%{
+    transform:translateY(0px);
+    opacity:0.5;
+  }
+
+  50%{
+    transform:translateY(-30px);
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(0px);
+    opacity:0.5;
+  }
+
+}
+
+/* ================================= */
 /* NAVBAR */
+/* ================================= */
+
 .navbar{
+  width:100%;
+  padding:28px 60px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:22px 50px;
-  background:rgba(255,255,255,0.3);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,0.4);
+  position:relative;
+  z-index:10;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:700;
+  letter-spacing:-1px;
 }
 
 .nav-btn{
-  padding:12px 20px;
+  border:none;
+  background:rgba(255,255,255,0.35);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.45);
+  padding:14px 24px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,0.4);
-  background:rgba(255,255,255,0.4);
-  text-decoration:none;
-  color:#16384d;
-  transition:0.3s;
+  cursor:pointer;
+  color:#183b4e;
+  transition:0.3s ease;
 }
 
 .nav-btn:hover{
   transform:translateY(-3px);
+  background:rgba(255,255,255,0.55);
 }
 
-.logo a{
-  text-decoration:none;
-  color:#16384d;
-  font-weight:700;
-  font-size:20px;
-}
-
-/* ========================= */
-/* HOME PAGE */
-/* ========================= */
+/* ================================= */
+/* HERO */
+/* ================================= */
 
 .hero{
+  min-height:calc(100vh - 90px);
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:80px 50px;
-  min-height:90vh;
-  gap:60px;
+  padding:30px 60px 100px;
 }
 
-.hero-text h1{
-  font-size:70px;
-  line-height:0.95;
-}
-
-.hero-text p{
-  margin-top:20px;
-  max-width:500px;
-  line-height:1.7;
-}
-
-.hero-buttons{
-  margin-top:30px;
-  display:flex;
-  gap:15px;
-}
-
-.primary{
-  background:#7dd3c7;
-  color:white;
-  padding:14px 24px;
-  border-radius:15px;
-  text-decoration:none;
-}
-
-.secondary{
-  background:rgba(255,255,255,0.5);
-  padding:14px 24px;
-  border-radius:15px;
-  text-decoration:none;
-  border:1px solid rgba(255,255,255,0.5);
-}
-
-.hero-img img{
-  width:350px;
-  border-radius:30px;
-}
-
-/* ========================= */
-/* GALLERY */
-/* ========================= */
-
-.gallery{
-  padding:80px 50px;
-}
-
-.gallery h1{
-  text-align:center;
-  font-size:45px;
-  margin-bottom:40px;
-}
-
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:25px;
-  max-width:1000px;
-  margin:auto;
-}
-
-.gallery-card{
-  border-radius:20px;
-  overflow:hidden;
-  background:rgba(255,255,255,0.3);
-  backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,0.4);
-}
-
-.gallery-card img{
+.hero-wrapper{
   width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:0.3s;
+  max-width:1350px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:80px;
 }
 
-.gallery-card img:hover{
-  transform:scale(1.05);
+/* ================================= */
+/* LEFT CONTENT */
+/* ================================= */
+
+.hero-content{
+  flex:1;
 }
 
-/* ========================= */
-/* RESOURCES PAGE */
-/* ========================= */
-
-.resources{
-  padding:80px 50px;
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 20px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.45);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.5);
+  margin-bottom:28px;
+  font-size:14px;
 }
 
-.resource-card{
-  background:rgba(255,255,255,0.4);
-  border:1px solid rgba(255,255,255,0.4);
-  backdrop-filter:blur(12px);
-  padding:20px;
-  border-radius:20px;
+.hero-content h1{
+  font-size:78px;
+  line-height:0.92;
+  letter-spacing:-4px;
+  margin-bottom:26px;
+}
+
+.quote{
+  font-family:'Amita',cursive;
+  font-size:30px;
+  color:#4f7c82;
   margin-bottom:20px;
 }
 
-.resource-card h3{
-  margin-bottom:10px;
+.description{
+  max-width:620px;
+  line-height:1.9;
+  font-size:17px;
+  color:#496274;
+  margin-bottom:40px;
+}
+
+/* ================================= */
+/* BUTTONS */
+/* ================================= */
+
+.hero-buttons{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.primary-btn{
+  border:none;
+  background:#7dd3c7;
+  color:white;
+  padding:18px 32px;
+  border-radius:22px;
+  cursor:pointer;
+  font-size:15px;
+  transition:0.3s ease;
+  box-shadow:0 15px 40px rgba(125,211,199,0.35);
+}
+
+.secondary-btn{
+  border:none;
+  background:rgba(255,255,255,0.45);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.5);
+  padding:18px 30px;
+  border-radius:22px;
+  cursor:pointer;
+  font-size:15px;
+  transition:0.3s ease;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+  transform:translateY(-4px);
+}
+
+/* ================================= */
+/* RIGHT VISUAL */
+/* ================================= */
+
+.hero-visual{
+  flex:1;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* MAIN GLOW */
+
+.main-glow{
+  position:absolute;
+  width:480px;
+  height:480px;
+  border-radius:50%;
+  background:radial-gradient(
+    circle,
+    rgba(125,211,199,0.45),
+    transparent 70%
+  );
+  filter:blur(25px);
+  animation:floatGlow 6s ease-in-out infinite;
+}
+
+/* MAIN PORTRAIT */
+
+.portrait-card{
+  width:390px;
+  padding:18px;
+  border-radius:42px;
+  background:rgba(255,255,255,0.28);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.45);
+  box-shadow:0 20px 60px rgba(0,0,0,0.08);
+  position:relative;
+  z-index:5;
+  transition:0.4s ease;
+}
+
+.portrait-card:hover{
+  transform:translateY(-8px);
+}
+
+.portrait-card img{
+  width:100%;
+  border-radius:32px;
+  display:block;
+}
+
+/* SMALL FLOATING IMAGES */
+
+.mini-image{
+  position:absolute;
+  width:140px;
+  height:170px;
+  border-radius:28px;
+  overflow:hidden;
+  padding:10px;
+  background:rgba(255,255,255,0.3);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.45);
+  box-shadow:0 15px 40px rgba(0,0,0,0.08);
+  animation:floatCard 5s ease-in-out infinite;
+}
+
+.mini-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:20px;
+}
+
+.card-1{
+  top:-40px;
+  right:-20px;
+}
+
+.card-2{
+  bottom:-30px;
+  right:40px;
+}
+
+.card-3{
+  left:-40px;
+  bottom:60px;
+}
+
+/* floating info */
+
+.floating-info{
+  position:absolute;
+  left:-60px;
+  top:60px;
+  padding:18px 22px;
+  border-radius:26px;
+  background:rgba(255,255,255,0.4);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.45);
+  box-shadow:0 10px 40px rgba(0,0,0,0.06);
+  z-index:8;
+}
+
+.floating-info span{
+  font-size:13px;
+  color:#4f7c82;
+}
+
+.floating-info h3{
+  margin-top:8px;
+  font-size:19px;
+  line-height:1.4;
+}
+
+/* ================================= */
+/* ANIMATIONS */
+/* ================================= */
+
+@keyframes floatGlow{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-25px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+@keyframes floatCard{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-12px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
+
+@media(max-width:980px){
+
+  .hero-wrapper{
+    flex-direction:column-reverse;
+    text-align:center;
+    gap:50px;
+  }
+
+  .hero-content h1{
+    font-size:54px;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .navbar{
+    padding:20px;
+  }
+
+  .portrait-card{
+    width:100%;
+    max-width:360px;
+  }
+
+  .mini-image{
+    width:100px;
+    height:130px;
+  }
+
+  .floating-info{
+    position:relative;
+    left:0;
+    top:20px;
+    margin:auto;
+  }
+
+  .card-1{
+    right:0;
+  }
+
+  .card-3{
+    left:0;
+  }
+
 }
 
 </style>
+</head>
 
-<!-- ========================================= -->
-<!-- 1. HOME PAGE (index.html) -->
-<!-- ========================================= -->
+<body>
 
+<!-- ================================= -->
+<!-- BACKGROUND -->
+<!-- ================================= -->
+
+<div class="background">
+
+  <div class="blur one"></div>
+  <div class="blur two"></div>
+  <div class="blur three"></div>
+
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+
+</div>
+
+<!-- ================================= -->
 <!-- NAVBAR -->
+<!-- ================================= -->
+
 <nav class="navbar">
-  <div class="logo"><a href="index.html">CHEW In Training</a></div>
-  <a href="resources.html" class="nav-btn">Resources</a>
-  <a href="gallery.html" class="nav-btn">Gallery</a>
+
+  <button class="nav-btn">
+    Resources
+  </button>
+
+  <div class="logo">
+    CHEW In Training
+  </div>
+
+  <button class="nav-btn">
+    Gallery
+  </button>
+
 </nav>
 
+<!-- ================================= -->
 <!-- HERO -->
+<!-- ================================= -->
+
 <section class="hero">
 
-  <div class="hero-text">
+  <div class="hero-wrapper">
 
-    <h1>Learn.<br>Heal.<br>Grow.</h1>
+    <!-- LEFT -->
 
-    <p>
-      A healthcare training ecosystem built for CHEW students —
-      combining real ward experiences, emotional preparation,
-      and practical survival knowledge.
-    </p>
+    <div class="hero-content">
 
-    <div class="hero-buttons">
-      <a href="resources.html" class="primary">Explore Resources</a>
-      <a href="gallery.html" class="secondary">View Gallery</a>
+      <div class="badge">
+        Future Healthcare Professional Platform
+      </div>
+
+      <h1>
+        Learn.<br>
+        Heal.<br>
+        Grow.
+      </h1>
+
+      <p class="quote">
+        “Every confident healthcare worker was once afraid.”
+      </p>
+
+      <p class="description">
+
+        Real ward experiences, practical clinical survival guides,
+        emotional preparation systems, healthcare confidence building,
+        and mentorship designed for future healthcare professionals.
+
+      </p>
+
+      <div class="hero-buttons">
+
+        <button class="primary-btn">
+          Explore Resources
+        </button>
+
+        <button class="secondary-btn">
+          Enter Ward Archive
+        </button>
+
+      </div>
+
     </div>
 
-  </div>
+    <!-- RIGHT -->
 
-  <div class="hero-img">
-    <img src="https://i.postimg.cc/pXGmKJ1Q/028d1d49-d6f5-42ec-93b0-b134e00bd49c.jpg">
+    <div class="hero-visual">
+
+      <div class="main-glow"></div>
+
+      <!-- MAIN PORTRAIT -->
+
+      <div class="portrait-card">
+
+        <img src="https://i.postimg.cc/pXGmKJ1Q/028d1d49-d6f5-42ec-93b0-b134e00bd49c.jpg" alt="Creator">
+
+      </div>
+
+      <!-- SMALL FLOATING IMAGES -->
+
+      <div class="mini-image card-1">
+
+        <img src="https://i.postimg.cc/502c5Lrk/620698dd-f5c1-482e-8777-6487c4a1a025.jpg">
+
+      </div>
+
+      <div class="mini-image card-2">
+
+        <img src="https://i.postimg.cc/QtdLg1zP/6ade7775-4b1d-4f0c-aafd-26890e165bf4.jpg">
+
+      </div>
+
+      <div class="mini-image card-3">
+
+        <img src="https://i.postimg.cc/Kz8X7BWC/93646fdf-c196-4563-9368-341bb6e7cb75.jpg">
+
+      </div>
+
+      <!-- FLOATING INFO -->
+
+      <div class="floating-info">
+
+        <span>Healthcare Journey</span>
+
+        <h3>
+          Building Confidence Through Experience
+        </h3>
+
+      </div>
+
+    </div>
+
   </div>
 
 </section>
 
-<!-- ========================================= -->
-<!-- 2. GALLERY PAGE (gallery.html) -->
-<!-- ========================================= -->
-
-<nav class="navbar">
-  <div class="logo"><a href="index.html">CHEW In Training</a></div>
-  <a href="resources.html" class="nav-btn">Resources</a>
-  <a href="gallery.html" class="nav-btn">Gallery</a>
-</nav>
-
-<section class="gallery">
-
-  <h1>Visual Journey</h1>
-
-  <div class="gallery-grid">
-
-    <div class="gallery-card">
-      <img src="https://i.postimg.cc/pXGmKJ1Q/028d1d49-d6f5-42ec-93b0-b134e00bd49c.jpg">
-    </div>
-
-    <div class="gallery-card">
-      <img src="https://i.postimg.cc/502c5Lrk/620698dd-f5c1-482e-8777-6487c4a1a025.jpg">
-    </div>
-
-    <div class="gallery-card">
-      <img src="https://i.postimg.cc/QtdLg1zP/6ade7775-4b1d-4f0c-aafd-26890e165bf4.jpg">
-    </div>
-
-    <div class="gallery-card">
-      <img src="https://i.postimg.cc/Kz8X7BWC/93646fdf-c196-4563-9368-341bb6e7cb75.jpg">
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ========================================= -->
-<!-- 3. RESOURCES PAGE (resources.html) -->
-<!-- ========================================= -->
-
-<nav class="navbar">
-  <div class="logo"><a href="index.html">CHEW In Training</a></div>
-  <a href="resources.html" class="nav-btn">Resources</a>
-  <a href="gallery.html" class="nav-btn">Gallery</a>
-</nav>
-
-<section class="resources">
-
-  <h1 style="text-align:center;margin-bottom:40px;font-size:40px;">
-    Training Resources
-  </h1>
-
-  <div class="resource-card">
-    <h3>Ward Experience 01</h3>
-    <p>Real clinical exposure breakdown for beginners entering healthcare practice.</p>
-  </div>
-
-  <div class="resource-card">
-    <h3>Patient Communication Guide</h3>
-    <p>How to speak with patients with confidence, empathy, and clarity.</p>
-  </div>
-
-  <div class="resource-card">
-    <h3>Clinical Survival Kit</h3>
-    <p>Essential mental + practical tools every CHEW student must know.</p>
-  </div>
-
-</section>
+</body>
+</html>
